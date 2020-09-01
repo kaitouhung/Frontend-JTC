@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .error {
+            font-size: 15px;
+            color: red;
+        }
+
+        p {
+            margin-bottom: 5px;
+            margin-top: 0px;
+        }
+
+        p:last-child {
+            margin-bottom: 20px;
+        }
+
+        span {
+            display: block;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="form-input" id="email">
+        <p>Email*</p>
+        <p>
+            <input type="email" required>
+        </p>
+        <p class="error"></p>
+    </div>
+    <div class="form-input" id="password">
+        <p>Password*</p>
+        <p>
+            <input type="password" required>
+        </p>
+        <p class="error"></p>
+    </div>
+    <div class="form-input" id="confirm-password">
+        <p>Confirm-Password</p>
+        <p>
+            <input type="password" required matched='#password input'>
+        </p>
+        <p class="error"></p>
+    </div>
+    <div>
+        <button onclick="checkData()">Register</button>
+    </div>
+
+    <script>
+
+
+        $(document).ready(function () {
+            initFormValidate();
+        });
+
+        function initFormValidate() {
+            $('.form-input input').on('keyup', function (e) {
+                var required = $(this).attr('required');
+                var matched = $(this).attr('matched');
+
+                if (required != undefined) {
+                    if ($(this).val() == '') {
+                        if ($(this).parent().parent().find('.error .required').length == 0) {
+                            $(this).parent().parent().find('.error').append('<span class="required">This filed is required</span>');
+                        }
+                    }
+                    else {
+                        $(this).parent().parent().find('.error .required').remove();
+                    }
+                }
+
+                if (matched != undefined) {
+                    if ($(matched).length > 0) {
+                        var curr = $(this).val();
+                        var hurr = $(matched).val();
+                        if (curr != hurr) {
+                            if ($(this).parent().parent().find('.error .matched').length == 0)
+                                $(this).parent().parent().find('.error').append('<span class="matched">Password not corret</span>');
+                        } else {
+                            $(this).parent().parent().find('.error .matched').remove();
+                        }
+                    }
+                }
+            })
+        }
+
+        function checkData() {
+            if ($('#email input').val() == '') {
+                $('#email .error').html('This field is required');
+            } else {
+                $('#email .error').html('');
+            }
+
+            if ($('#password input').val() == '') {
+                $('#password .error').html('This field is required')
+            } else {
+                $('#password .error').html('');
+            }
+
+            if ($('#confirm-password input').val() == '') {
+                $('#confirm-password .error').html('This field is required');
+            } else {
+                $('#confirm-password .error').html('');
+            }
+        }
+
+    </script>
+
+
+    <div class="Digital">
+        Digital Clock
+        <p class="time"></p>
+    </div>
+    <script>
+        var now = new Date();
+
+        $(document).ready(function () {
+            displayTime();
+            setInterval(function(){
+                now.setSeconds(now.getSeconds()+1);
+                displayTime();
+            },1000);
+        });
+
+        function displayTime() {
+            var timeString = now.getHours() + ":"
+            + (now.getMinutes() < 10 ? ("0" + now.getMinutes()) : now.getMinutes()) + ":" 
+            + (now.getSeconds() < 10 ? ("0" + now.getSeconds()) : now.getSeconds());
+            $('.time').html(timeString);
+        }           
+
+    </script>
+    <div class="rainbow">
+
+    </div>
+    <style>
+        .rainbow{
+            width: 100px;
+            height: 100px;
+            animation: raibow 1s infinite;
+        }
+
+        @keyframes raibow {
+            0%,100%{
+                background: red;
+            }
+            15%{
+                background: blue;
+            }
+            30%{
+                background: yellow;
+            }
+            45%{
+                background:green;
+            }
+            60%{
+                background:hotpink;;
+            }
+            75%{
+                background: indigo;
+            }
+            90%{
+                background: ivory;
+            }
+            
+        }
+        
+    </style>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="list">
+
+    </div>
+    <h3>Cart</h3>
+    <div class="cart">
+
+    </div>
+    <script>
+        var listItems = [
+            { id: 1, name: "Iphone", price: 10000000 },
+            { id: 2, name: "Iwatch", price: 7000000 },
+            { id: 3, name: "Imac", price: 30000000 },
+            { id: 4, name: "Ipod", price: 5000000 },
+            { id: 5, name: "Ipad", price: 9000000 }
+        ];
+
+        var cart = [];
+
+        $(document).ready(function () {
+            displayList();
+            getCartFromLocalStorage();
+            displayCart();
+
+        });
+
+        function displayList() {
+            var html = "";
+            for (var i = 0; i < listItems.length; i++) {
+                html += '<p> ' + listItems[i].id + ' ' + listItems[i].name + ' ' + listItems[i].price + '<br>' +
+                    '<button onclick="addToCart(' + listItems[i].id + ')"> Add </button>';
+            }
+            $('.list').html(html);
+        }
+
+        function addToCart(id) {
+            console.log(id);
+            for (var i = 0; i < listItems.length; i++) {
+                if (listItems[i].id == id) {
+                    var existsed = false;
+                    for (var j = 0; j < cart.length; j++) {
+                        if (cart[j].id == id) {
+                            cart[j].quantity++;
+                            existsed = true;
+                        }
+                    }
+                    console.log("sssa"+id);
+                    if (!existsed) {
+                        cart.push({
+                            id: listItems[i].id,
+                            name: listItems[i].name,
+                            price: listItems[i].price,
+                            quantity: 1
+                        })
+                    }
+                    updateCartToLocalStorage();
+                    displayCart();
+                    return;
+                }
+            }
+        }
+
+        function updateCartToLocalStorage(){
+            localStorage.setItem("cart",JSON.stringify(cart));
+        }
+
+        function getCartFromLocalStorage(){
+            cart=localStorage.getItem("cart");
+            if(cart !=""&& cart!=undefined){
+                cart=JSON.parse(cart);
+            }else{
+                cart=[];
+            }
+        }
+
+        function displayCart() {
+            var html = "";
+            if (cart.length === 0) {
+                html = "There is no item in cart";
+            } else {
+                for (var i = 0; i < cart.length; i++) {
+                    html += '<p> ' + cart[i].id + ' ' + cart[i].name + ' ' + cart[i].price + ' ' + cart[i].quantity + '<br>' +
+                        '<button onclick="removeCart(' + i + ')"> X </button><button onclick="Tang('+i+')">+</button><button onclick="Giam('+i+')">-</button>';
+                }
+            }
+            $('.cart').html(html);
+        }
+
+        function removeCart(index){
+            cart.splice(index,1);
+            displayCart();
+            updateCartToLocalStorage();
+        }
+        function Tang(index){
+            cart[index].quantity++;
+            displayCart();
+            updateCartToLocalStorage();
+        }
+        function Giam(index){
+            if(cart[index].quantity>1){
+                cart[index].quantity--;
+            }else{
+                removeCart(index);
+            }
+            displayCart();
+            updateCartToLocalStorage();            
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

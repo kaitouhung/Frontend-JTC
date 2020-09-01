@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <!-- <input type="text" id="inputText">
+    <p id="inputError" style="display: none">This text must have more than 10 characters</p> -->
+
+    <!-- <p id="text">Laptrinhvien.io</p>
+
+    <div id="opacityFunction">
+        <button>-</button>
+        <button>+</button>
+    </div> -->
+
+    <div id="result" style="height:200px;width:200px;transition:all 0.5s;">
+
+    </div>
+
+    <select id="color">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+    </select>
+    <!-- <br> Red
+    <input type="number" id="red" max="255" min="0" value="0">
+    <br> Green
+    <input type="number" id="green" max="255" min="0" value="0">
+    <br> Blue
+    <input type="number" id="blue" max="255" min="0" value="0">
+    <br>
+    <button id="apply-color">Apply</button> -->
+
+    <script>
+        $(document).ready(function () {
+            // $('#inputText').on('keyup', check);
+
+            // $('#opacityFunction button:first-child').on('click', decreaseOpacity);
+            // $('#opacityFunction button:last-child').on('click', increaseOpacity);
+
+            $('#color').on('change', changeColor);
+            //$('#apply-color').on('click', applyColor);
+        });
+
+        function check() {
+            // var data = $('#inputText').val();
+            var data = $(this).val();
+
+            if (data.length < 10) {
+                $('#inputError').show(500);
+            } else {
+                $('#inputError').hide(500);
+            }
+        }
+
+        function decreaseOpacity() {
+            var opacity = $('#text').css('opacity');
+
+            if (opacity == "") {
+                opacity = 1;
+            } else {
+                opacity = parseFloat(opacity);
+            }
+
+            if (opacity > 0) {
+                opacity -= 0.1;
+
+                $('#text').css('opacity', opacity);
+            }
+        }
+
+        function increaseOpacity() {
+            var opacity = $('#text').css('opacity');
+
+            if (opacity == "") {
+                opacity = 1;
+            } else {
+                opacity = parseFloat(opacity);
+            }
+
+            if (opacity < 1) {
+                opacity += 0.1;
+
+                $('#text').css('opacity', opacity);
+            }
+        }
+
+        function changeColor() {
+            var color = $(this).val();
+
+            $('#result').css('background', color);
+        }
+
+        function applyColor() {
+            var red = $('#red').val();
+            var green = $('#green').val();
+            var blue = $('#blue').val();
+
+            if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) {
+                $('#result').css('background', "rgb(" + red + "," + green + "," + blue + ")");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS - Array</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Array các phương thức cần nhớ:
+        - length
+        - indexOf()
+        - lastIndexOf()
+        - pop(), push()
+        - shift(), unshift()
+        - slice()
+        - splice()
+        - join()
+        */
+
+        /* Đếm số chẵn trong mảng */
+        function demSoChanTrongMang(mang) {
+            var count = 0;
+            for (var i = 0; i < mang.length; i++) {
+                if (mang[i] % 2 == 0) {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        /* Viết hàm truyền vào 1 mảng, trả về mảng con bao gồm các số chẵn có trang mảng truyền vào */
+        function laySoChanTrongMang(mang) {
+            var mangSoChan = [];
+            for (var i = 0; i < mang.length; i++) {
+                if (mang[i] % 2 == 0) {
+                    mangSoChan.push(mang[i]);
+                }
+            }
+
+            return mangSoChan;
+        }
+
+        /*
+        String và các phương thức cần nhớ:
+        - +
+        - length
+        - indexOf()
+        - replace()
+        - slice()
+        - substr()
+        - substring()
+        */
+
+        /* Viết hàm nhận vào 1 chuỗi trả về mảng các ký tự của chuỗi */
+        function chiaChuoiThanhMangKyTu(chuoi) {
+            return chuoi.split('');
+        }
+
+        /* Yêu cầu tương tự như trên, nhưng mảng kết quả, các ký tự không được trùng nhau */
+        function chiaChuoiThanhMangKhongTrung(chuoi) {
+            var chuoiCon = "";
+            for (var i = 0; i < chuoi.length; i++) {
+                if (chuoiCon.indexOf(chuoi[i]) < 0) {
+                    chuoiCon += chuoi[i];
+                }
+            }
+
+            return chuoiCon.split('');
+        }
+
+        var data = prompt("Vui long nhap vao 1 chuoi");
+        alert("Ket qua chuoi cua ban sau khi xu ly: " + chiaChuoiThanhMangKhongTrung(data));
+
+        /*
+        Date:
+        - getMonth() => 0 -> 11
+        - getDate() => 1 -> 31
+        - getDay() => 0 -> 6
+        */
+        function inTuoi(nam, thang, ngay) {
+            var current = new Date();
+            var currentYearBirthday = new Date(current.getFullYear(), thang, ngay);
+
+            var namTuoi, ngayTuoi;
+
+            if (current.getTime() > currentYearBirthday.getTime()) {
+                namTuoi = current.getFullYear() - nam;
+                ngayTuoi = parseInt((current.getTime() - currentYearBirthday.getTime()) / (24 * 60 * 60 * 1000));
+
+                // console.log("Ban duoc: " + namTuoi + " tuoi " + ngayTuoi + " ngay");
+            } else {
+                var lastYearBirthday = new Date(current.getFullYear() - 1, thang, ngay);
+
+                namTuoi = current.getFullYear() - nam;
+                ngayTuoi = parseInt((current.getTime() - lastYearBirthday.getTime()) / (24 * 60 * 60 * 1000));
+
+                // console.log("Ban duoc: " + namTuoi + " tuoi " + ngayTuoi + " ngay");
+            }
+
+            alert("Ban duoc: " + namTuoi + " tuoi " + ngayTuoi + " ngay");
+        }
+
+        // var nam = parseInt(prompt("Vui long nhap vao nam sinh"));
+        // var thang = parseInt(prompt("Vui long nhap vao thang sinh")) - 1;
+        // var ngay = parseInt(prompt("Vui long nhap vao ngay sinh"));
+
+        // inTuoi(nam, thang, ngay);
+    </script>
+</body>
+
+</html>

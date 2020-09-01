@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Details</title>
+</head>
+
+<body>
+    <div class="result">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var id = getUrlParameter('id');
+            getDataDetails(id);
+        });
+
+        function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+
+        function getDataDetails(id) {
+            $.ajax({
+                url: 'https://api.myjson.com/bins/' + id,
+                method: 'GET',
+                success: function(res) {
+                    var html = "<p>Image URL: " + res.image + "</p>" +
+                        "<p>Title: " + res.title + "</p>" +
+                        "<p>Author: " + res.author + "</p>" +
+                        "<p>Date: " + res.date + "</p>" +
+                        "<p>Description: " + res.description + "</p>";
+
+                    $('.result').html(html);
+                },
+                error: function (err) {
+                    alert("Can't get data");
+                    console.log(err);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Before - After</title>
+</head>
+<body>
+    <a class="link">This is a link !</a>
+
+    <style>
+        .link {
+            position: relative;
+        }
+
+        .link:after {
+            position: absolute;
+            height: 1px;
+            width: 50%;
+            background: black;
+            content: ' ';
+            display: block;
+            transition: width 0.5s;
+        }
+
+        .link:hover:after {
+            width: 100%;
+        }
+
+        .link:before {
+            content: '\0374 ';
+            display: inline;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript - Event</title>
+</head>
+
+<body>
+    <!-- <div id="test" style="min-height: 300px; border:1px solid black;" onclick="divClick()" ondblclick="divDblClick()">
+
+    </div>
+
+    <input type="text" onkeyup="check()" id="inputText">
+    <p id="inputError" style="display: none">This text must have more than 10 characters</p> -->
+
+    <!-- <div id="result" style="height:200px;width:200px;transition:all 0.5s;">
+
+    </div> -->
+    <!-- <select id="color" onchange="changeColor()">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>        
+    </select> -->
+    <!-- Red
+    <input type="number" id="red" max="255" min="0" value="0">
+    <br> Green
+    <input type="number" id="green" max="255" min="0" value="0">
+    <br> Blue
+    <input type="number" id="blue" max="255" min="0" value="0">
+    <br>
+    <button onclick="applyColor()">Apply</button> -->
+
+    <p id="text">Laptrinhvien.io</p>
+
+    <button onclick="decreaseOpacity()">-</button>
+    <button onclick="increaseOpacity()">+</button>
+
+    <script>
+        function decreaseFont() {
+            var fontSize;
+
+            if (document.getElementById('text').style.fontSize == "") {
+                fontSize = 16;
+            } else {
+                fontSize = parseInt(document.getElementById('text').style.fontSize);
+            }
+
+            if (fontSize > 1) {
+                fontSize--;
+
+                document.getElementById('text').style.fontSize = fontSize + "px";
+            }
+        }
+
+        function increaseFont() {
+            var fontSize;
+
+            if (document.getElementById('text').style.fontSize == "") {
+                fontSize = 16;
+            } else {
+                fontSize = parseInt(document.getElementById('text').style.fontSize);
+            }
+
+            fontSize++;
+
+            document.getElementById('text').style.fontSize = fontSize + "px";
+        }
+
+        function decreaseOpacity() {
+            var opacity;
+
+            if (document.getElementById('text').style.opacity == "") {
+                opacity = 1;
+            } else {
+                opacity = parseFloat(document.getElementById('text').style.opacity);
+            }
+
+            if (opacity > 0) {
+                opacity -= 0.1;
+
+                document.getElementById('text').style.opacity = opacity;
+            }
+        }
+
+        function increaseOpacity() {
+            var opacity;
+
+            if (document.getElementById('text').style.opacity == "") {
+                opacity = 1;
+            } else {
+                opacity = parseFloat(document.getElementById('text').style.opacity);
+            }
+
+            if (opacity < 1) {
+                opacity += 0.1;
+
+                document.getElementById('text').style.opacity = opacity;
+            }
+        }
+
+        function divClick() {
+            // alert("Click !!!");
+            document.getElementById('test').innerHTML += "Click !!!<br>";
+            var width = parseInt(document.getElementById('test').style.borderWidth);
+            document.getElementById('test').style.borderWidth = (width + 1) + "px";
+        }
+
+        function divDblClick() {
+            // alert("Double click !!!");
+            document.getElementById('test').innerHTML += "Double click !!!<br>";
+        }
+
+        function check() {
+            var input = document.getElementById('inputText');
+            var data = input.value;
+
+            if (input.value.length < 10) {
+                document.getElementById('inputError').style.display = "block";
+            } else {
+                document.getElementById('inputError').style.display = "none";
+            }
+        }
+
+        // changeColor();
+
+        function changeColor() {
+            var color = document.getElementById('color').value;
+
+            document.getElementById('result').style.background = color;
+        }
+
+        function applyColor() {
+            var red = parseInt(document.getElementById('red').value);
+            var green = parseInt(document.getElementById('green').value);
+            var blue = parseInt(document.getElementById('blue').value);
+
+            if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) {
+                document.getElementById('result').style.background = "rgb(" + red + "," + green + "," + blue + ")";
+            }
+        }
+    </script>
+</body>
+
+</html>

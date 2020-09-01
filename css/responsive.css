@@ -1,0 +1,97 @@
+/* Medium Desktop */
+@media (max-width: 1200px) {
+    .my-container {
+        width: 100%;
+        padding: 0 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .menu {
+        height: 75px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .menu .my-container {
+        text-align: center;
+        position: relative;
+    }
+
+    .menu .logo {
+        float: none;
+        display: inline-block;
+        margin-right: 0;
+    }
+
+    .menu .logo img {
+        padding: 5px 0;
+    }
+
+    .content .middle .item, .footer .main .item {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .menu .bars {
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        left: 15px;
+        z-index: 1;
+        top: 15px;
+    }
+
+    .menu .mobile-menu {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        z-index: 999;
+        height: 0;
+        top: 75px;
+        background: rgba(135, 206, 235, 0.7);
+        overflow: hidden;
+        transition: height 1s ease-in-out;
+    }
+
+    .menu .mobile-menu.active {
+        height: calc(100vh - 75px);
+    }
+
+    .menu .mobile-menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu .mobile-menu ul li {
+        padding: 15px;
+        color: white;
+        border-top: 1px solid white;
+    }
+
+    .menu .mobile-menu ul li:last-child {
+        border-bottom: 1px solid white;
+    }
+
+    .slider .carousel-item .text {
+        width: 100%;
+    }
+
+    .slider {
+        margin-top: 75px;
+    }
+}

@@ -1,0 +1,398 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.my-container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.mobile {
+    display: none;
+}
+
+/* Menu */
+.menu {
+    background: skyblue;
+    height: 100px;
+}
+
+.menu .my-container {
+    height: 100%;
+}
+
+.menu .logo {
+    height: 100%;
+    float: left;
+    margin-right: 100px;
+}
+
+.menu .logo img {
+    padding: 15px 0;
+    max-height: 100%;
+}
+
+.menu .list {
+    float: left;
+}
+
+.menu .list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu .list ul li {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 38px 25px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu .list ul li:hover {
+    color: white;
+    background:black;
+}
+
+.menu .list .parent ul.child {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    text-align: center;
+    display: none;
+    background: grey;
+    z-index: 1;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.menu .list .parent ul.child li {
+    display: block;
+}
+
+.menu .list .parent:hover ul.child {
+    display: block;
+}
+
+.menu .search {
+    font-size: 30px;
+    float: right;
+    padding: 27px 0;
+    cursor: pointer;
+    transition: all 1s linear;
+}
+
+.menu .search:hover {
+    transform: rotateZ(360deg);
+}
+
+/* Slider */
+.slider  .carousel-item {
+    height: calc(100vh - 100px);
+    background-position: center;
+    background-size: cover;
+}
+
+.slider .carousel-item .text {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+}
+
+.slider .carousel-item .text p {
+    font-style: italic;
+}
+
+/* Content */
+.content .my-container {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 0 15px 20px;    
+}
+
+.content .top {
+    padding: 15px 0;
+}
+
+.content .top .label {
+    float: left;
+    padding: 10px 25px;
+    background: skyblue;
+    border: 1px solid black;
+}
+
+.content .top .control {
+    float: right;
+}
+
+.content .top .control button {
+    background: none;
+    border: 1px solid black;
+    padding: 5px 15px;
+    font-size: 23px;
+    margin-left: 10px;
+}
+
+.content .middle,
+.footer .main {
+    margin: 15px 0;
+}
+
+.content .middle .item,
+.footer .main .item {
+    width: 32%;
+    margin-right: 2%;
+    float: left;
+    margin-bottom: 30px;
+}
+
+.content .middle .item.last,
+.footer .main .item.last {
+    margin-right: 0;
+}
+
+/* .content .middle .item:nth-child(3n) {
+    margin-right: 0;
+} */
+
+.content .middle .item .image {
+    height: 200px;
+    background-size: cover;
+    background-position: top center;
+}
+
+.content .middle .item .text {
+    margin: 10px 0;
+}
+
+.content .middle .item .text .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.content .middle .item .text span {
+    float: right;
+    font-style: italic;
+}
+
+.content .bottom button {
+    min-width: 29px;
+    background: none;
+    border: 1px solid black;
+    margin-right: 5px;
+}
+
+.content .bottom p {
+    margin: 0;
+}
+
+.content .bottom span.dots {
+    margin-right: 5px;
+    font-weight: bold;
+    float: none;
+}
+
+.content .bottom span {
+    float: right;
+}
+
+/* Footer */
+.footer .my-container {
+    padding: 0 15px;
+    background: black;
+    
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.footer .main {
+    margin: 0;
+    padding: 15px 0;
+}
+
+.footer .sub {
+    border-top: 1px solid white;
+    color: white;
+    text-align: right;
+    padding: 10px 15px;
+    margin: 0 -15px;
+}
+
+.footer .main .logo {
+    height: 100px;
+    margin-bottom: 20px;    
+}
+
+.footer .main .logo img {
+    max-height: 100%;
+}
+
+.footer .main .text {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer .main .social {
+    margin-bottom: 20px;
+}
+
+.footer .main .social i {
+    font-size: 30px;
+    margin-right: 15px;
+    color: white;
+}
+
+.footer .main .item .label {
+    display: inline-block;
+    background: skyblue;
+    color: black;
+    padding: 15px 50px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.footer .main .item .my-row {
+    margin-bottom: 15px;
+}
+
+.footer .main .item .my-row .image {
+    width: 40%;
+    display: inline-block;
+}
+
+.footer .main .item .my-row .image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.footer .main .item .my-row .text {
+    width: 55%;
+    float: right;
+}
+
+.footer .main .item .my-row .text p:first-child {
+    font-weight: bold;
+}
+
+.footer .main .item .my-row .text p:last-child {
+    font-style: italic;
+    font-size: 14px;
+}
+
+.footer .main .item .categories {
+    color: white;
+}
+
+.footer .main .item .categories span {
+    float: right;
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    border: 1px solid black;
+    font-size: 30px;
+    width: 50px;
+    border-radius: 50%;
+    background: white;
+}
+
+/* Effect */
+.effect .image {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s linear;    
+}
+
+.effect .short-desc {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    overflow: hidden;    
+    color: white;
+    background: rgba(0,0,0,0.8);
+    transition: all 0.5s linear;
+}
+
+.effect-1 .short-desc {
+    width: 0;
+    padding: 15px 0;    
+}
+
+.effect-1:hover .short-desc {
+    width: 100%;
+    padding: 15px;
+}
+
+.effect-2 .short-desc {
+    left: -100%;
+}
+
+.effect-2:hover .short-desc {
+    left: 0;
+}
+
+.effect-3 .short-desc {
+    bottom: 0;
+    top: auto;
+    height: 0;
+    padding: 0 15px;
+}
+
+.effect-3:hover .short-desc {
+    height: 100%;
+    padding: 15px;
+}
+
+.effect-4 .short-desc {
+    opacity: 0;
+}
+
+.effect-4:hover .short-desc {
+    opacity: 1;
+}
+
+.effect-5 .cover {
+    overflow: hidden;
+}
+
+/* .effect-5 .image {
+    transform: scale(0);
+} */
+
+.effect-5:hover .image {
+    transform: scale(1.5);
+}
+
+.effect-6 .short-desc {
+    /* opacity: 0;
+    transform: scale(4); */
+}
+
+.effect-6:hover .image {
+    transform: rotate3d(1,2,2,30deg);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript</title>
+</head>
+<body>
+    <script>
+        /* Cấu trúc rẽ nhánh if ... else ... ; switch ... case ... */
+
+        /* Tim so nghiem cua phuong trinh bac hai */
+        var a = 1, b = 2, c = -3;
+
+        var delta = b * b - 4 * a * c;
+
+        if (delta > 0) {
+            console.log("Phuong trinh co 2 nghiem phan biet");
+        } else if (delta == 0) {
+            console.log("Phuong trinh co nghiem kep");
+        } else {
+            console.log("Phuong trinh vo nghiem");
+        }
+
+        /* Kiem tra 3 so co tao thanh tam giac hay khong */
+        var x = 4, y = 5, z = 30;
+
+        if (x + y > z && x + z > y && z + y > x) {
+            console.log("Day la tam giac");
+        } else {
+            console.log("Day khong phai la tam giac");
+        }
+
+        /* Hien thi so ngay cua 1 thang */
+        var thang = 2;
+
+        switch(thang) {
+            case 1:
+            case 3: 
+            case 5: 
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                console.log("Thang " + thang + " co 31 ngay");
+                break;
+            case 2:
+                console.log("Thang " + thang + " co 28 ngay");
+                break;
+            case 1: 
+            case 4: 
+            case 6: 
+            case 9:
+            case 11:
+                console.log("Thang " + thang + " co 30 ngay");
+                break;
+            
+            default:
+                console.log("So khong hop le");
+        }
+
+        /* Kiem tra so nguyên tố */
+        var x = 100, snt = true;
+
+        for (var i = 2; i < x; i++) {
+            if (x % i == 0) {
+                snt = false;
+                break;
+            }
+        }
+
+        if (snt) {
+            console.log("x la so nguyen so");
+        } else {
+            console.log("x khong phai la so nguyen to");
+        }
+    </script>
+</body>
+</html>

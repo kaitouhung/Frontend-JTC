@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .col {
+            margin-right: 10px;
+        }
+
+        .col p {
+            margin-bottom: 5px;
+        }
+
+        .controller {
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 15px;
+        }
+
+        .controller .buttons {
+            margin-top: 10px;
+        }
+
+        .controller .buttons button {
+            margin-right: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="result"></div>
+    <div class="controller">
+        Name:
+        <input type="text" id="name">
+        <br> Email:
+        <input type="email" id="email">
+        <input type="hidden" id="index">
+        <div class="buttons">
+            <button class="add">Add</button>
+            <button class="save">Save</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.controller button:first-child').on('click', add);
+            $('.controller button:last-child').on('click', save);
+        });
+
+        var contacts = [];
+
+        function clearInput() {
+            $('#name').val("");
+            $('#email').val("");
+            $('#index').val("");
+        }
+
+        function add() {
+            var nameInput = $('#name').val();
+            var emailInput = $('#email').val();
+
+            if (nameInput != "" && emailInput != "") {
+                contacts.push({
+                    nameInput: nameInput,
+                    emailInput: emailInput
+                })
+            }
+            render();
+            clearInput();
+        }
+
+        function render() {
+            var html = '';
+            for (var i = 0; i < contacts.length; i++) {
+                html += '<div class="col">';
+                html += '<p>Name: ' + contacts[i].nameInput + '<br>';
+                html += 'Email: ' + contacts[i].emailInput + '<br>';
+                html += '<button onclick="remove(' + i + ')">X </button><button onclick="get(' + i + ')"> E</button></p>';
+                html += '</div>';
+            }
+            $('.result').html(html);
+        }
+
+        function remove(id) {
+            contacts.splice(id, 1);
+            render();
+        }
+
+        function get(id) {
+            $('#name').val(contacts[id].nameInput);
+            $('#email').val(contacts[id].emailInput);
+            $('#index').val(id);
+        }
+
+        function save() {
+            var nameInput = $('#name').val();
+            var emailInput = $('#email').val();
+            var id=parseInt($('#index').val())
+            if (nameInput != "" && emailInput != "") {
+                contacts[id].nameInput=nameInput;
+                contacts[id].emailInput=emailInput;
+            }
+            render();
+            clearInput();
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

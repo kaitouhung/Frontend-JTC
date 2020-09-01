@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+    Câu hỏi 44: Viết một chương trình nhập vào 5 số và tìm ra số lớn nhất. 
+    Chỉ dùng 1 thẻ input type number để nhập. Sau khi nhập 5 lần thì thẻ này sẽ bị vô hiệu hóa và hiển thị kết quả 
+    -->
+    <h3>Câu 44</h3>
+    <input id="cau44" type="number">
+
+    <script>
+        var dem = 0;
+        var max = 0;
+
+        $(document).ready(function () {
+            $("#cau44").on('keyup', function (e) {
+                if (e.keyCode === 13) {
+                    var chuoiSo = $(this).val();
+
+                    if (chuoiSo != "") {
+                        var so = parseFloat(chuoiSo);
+
+                        if (so > max) {
+                            max = so;
+                        }
+
+                        dem++;
+
+                        if (dem >= 5) {
+                            $(this).attr('disabled', 'disabled');
+                            alert("So lon nhat la: " + max);
+                        }
+
+                        $(this).val("")
+                    }
+                }
+            });
+        })
+    </script>
+
+    <!--
+        Câu hỏi 49: Viết chương trình nhập vào một câu, sau đó tìm ra từ dài nhất và in ra màn hình.
+    -->
+    <h3>Câu 49</h3>
+    <input id="cau49" type="text">
+
+    <script>
+        $(document).ready(function () {
+            $("#cau49").on('keyup', function (e) {
+                if (e.keyCode === 13) {
+                    var chuoi = $(this).val();
+
+                    if (chuoi != "") {
+                        var mangTu = chuoi.split(" ");
+                        var tuDaiNhat = "";
+
+                        for (var i = 0; i < mangTu.length; i++) {
+                            if (tuDaiNhat.length < mangTu[i].length) {
+                                tuDaiNhat = mangTu[i];
+                            }
+                        }
+
+                        alert("Tu dai nhat la: " + tuDaiNhat);
+                        $(this).val("");
+                    }
+                }
+            });
+        })
+    </script>
+
+    <!--
+        Cuoc thi chay giữa Rùa và Thỏ
+    -->
+    <style>
+        .racing {
+            width: 800px;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        .racing>div {
+            margin-bottom: 15px;
+        }
+
+        .racing img {
+            height: 50px;
+            width: 50px;
+            margin-left: 0;
+            transition: all 1s linear;
+        }
+    </style>
+    <h3>Cuộc đua kỳ thú</h3>
+    <div class="racing">
+        <div>
+            <img id="tho" src="./assets/images/rabbit.jpg" />
+        </div>
+        <div>
+            <img id="rua" src="./assets/images/turtle.png" />
+        </div>
+    </div>
+    <div>
+        <button id="start-racing">Start</button>
+    </div>
+
+    <script>
+        var racingInterval;
+
+        $(document).ready(function () {
+            $("#start-racing").on('click', function (e) {
+                racingInterval = setInterval(function () {
+                    run();
+                    dung();
+                }, 1000);
+            });
+        });
+
+        function run() {
+            var ruaSpeed = parseInt(Math.random() * 100);
+            var thoSpeed = parseInt(Math.random() * 100);
+
+            var ruaRoad = parseInt($('#rua').css("margin-left"));
+            ruaRoad += ruaSpeed;
+            $('#rua').css("margin-left", ruaRoad + "px");
+
+            var thoRoad = parseInt($('#tho').css("margin-left"));
+            thoRoad += thoSpeed;
+            $('#tho').css("margin-left", thoRoad + "px");
+        }
+
+        function dung() {
+            var ruaRoad = parseInt($('#rua').css("margin-left"));
+            var thoRoad = parseInt($('#tho').css("margin-left"));
+
+            if (ruaRoad >= 750 && thoRoad < 750) {
+                alert("Rua thang !!!");
+                clearInterval(racingInterval);
+            } else if (ruaRoad < 750 && thoRoad >= 750) {
+                alert("Tho thang !!!");
+                clearInterval(racingInterval);
+            } else if (ruaRoad >= 750 && thoRoad >= 750){
+                alert("Hoa !!!");
+                clearInterval(racingInterval);
+            }
+        }
+    </script>
+</body>
+
+</html>

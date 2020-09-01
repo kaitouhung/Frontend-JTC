@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kiểm tra</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <!---Bài 1--->
+    <p>Chuỗi:<input type="text" id="chuoi"></p>
+    <p>Ký tự<input type="text" id="kytu"></p>
+    <button id="bai1">Click</button>
+    <div id="result1"></div>
+
+    <hr>
+
+    <script>
+        $(document).ready(function () {
+            $('#bai1').on('click', bai1);
+        })
+
+        var html1 = ''
+
+
+        function bai1() {
+            var dem = 0;
+            var chuoi = $('#chuoi').val();
+            var kytu = $('#kytu').val();
+            chuoi = chuoi.split("");
+            for (var i = 0; i < chuoi.length; i++) {
+                if (chuoi[i] == kytu) {
+                    dem++;
+                }
+            }
+            html1 += '<p>so lan xuat hien cua ky tu la:' + dem + '</p>'
+            $('#result1').html(html1);
+
+
+        }
+
+    </script>
+
+    <!--Bai 3-->
+    <input type="number" id="so">
+    <button id="Add">Add</button>
+    <button id="Display">Display</button>
+    <div id="result3"></div>
+    <script>
+        $(document).ready(function () {
+            $('#Add').on('click', Add);
+            $('#Display').on('click', Display);
+        });
+
+        mang3 = [];
+        function Add() {
+            var so = $('#so').val();
+            mang3.push(so);
+            $('#so').val("");
+        }
+        var html3 = '';
+        function Display() {
+            for (var i = 0; i < mang3.length; i++) {
+                html3 += '<p>Element' + i + '=' + mang3[i] + '</p>';
+            }
+            $('#result3').html(html3);
+
+        }    
+    </script>
+
+
+    <hr>
+    <!---Bai2-->
+    <input type="number" id="so2">
+    <button id="bam">Bấm</button>
+    <div id="result2"></div>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#bam').on('click', themdau);
+            var html2 = '';
+            var mangcon = [];
+            function themdau() {
+                var so = $('#so2').val();
+                so = so.split("");
+                for (var i = 0; i < so.length; i++) {
+                    mangcon.push([so[i]]);
+
+                    if (parseInt(so[i]) % 2 == 0 && parseInt(so[i + 1]) % 2 == 0) {
+                        mangcon.push("-");
+                    }
+                }
+                for(var i=0;i<mangcon.length;i++){
+                    html2+=mangcon[i];
+                }
+                $('#result2').html(html2);
+                
+            }
+
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

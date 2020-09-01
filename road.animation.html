@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Road Animation</title>
+</head>
+<body>
+    <div class="road">
+        <img class="car" src="./assets/images/car.png" />
+        <img class="tree-1" src="./assets/images/tree.png" />
+        <img class="house-1" src="./assets/images/house.png" />
+    </div>
+    <style>
+        .road {
+            height: 500px;
+            border-bottom: 2px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .car {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            animation: car 10s linear infinite;
+            z-index: 2
+        }
+
+        @keyframes car {
+            0% {
+                left: 0%;
+                opacity: 1;
+            }
+
+            90% {
+                left: calc(100% - 150px);
+                opacity: 1;
+            }
+
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
+        }
+
+        .tree-1 {
+            position: absolute;
+            left: 20%;
+            animation: tree-1 10s linear infinite;
+        }
+
+        @keyframes tree-1 {
+            0%, 20% {
+                bottom: -260px;
+                opacity: 1;                
+            }
+
+            25%, 90% {
+                bottom: 0;
+                opacity: 1;                
+            }
+
+            100% {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        .house-1 {
+            position: absolute;
+            left: 50%;
+            animation: house-1 10s linear infinite;
+        }
+
+        @keyframes house-1 {
+            0%, 50% {
+                bottom: 100%;
+                opacity: 1;                
+            }
+
+            55%, 90% {
+                bottom: 0;
+                opacity: 1;                
+            }
+
+            100% {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+</html>

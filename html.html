@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>More about HTML</title>
+</head>
+
+<body>
+    <table width="600" height="200" border="1" cellpadding="20" cellspacing="10">
+        <tr>
+            <th>Col 1</th>
+            <th>Col 2</th>
+            <th>Col 3</th>
+            <th>Col 4</th>
+        </tr>
+        <tr>
+            <td colspan="3">Col 1 Row 1</td>
+            <!-- <td>Col 2 Row 1</td>
+            <td>Col 3 Row 1</td> -->
+            <td>Col 4 Row 1</td>
+        </tr>
+        <tr>
+            <td>Col 1 Row 2</td>
+            <td>Col 2 Row 2</td>
+            <td>Col 3 Row 2</td>
+            <td rowspan="3">Col 4 Row 2</td>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="2">Col 1 Row 3</td>
+            <!-- <td>Col 2 Row 3</td> -->
+            <td>Col 3 Row 3</td>
+            <!-- <td>Col 4 Row 3</td> -->
+        </tr>
+        <tr>
+            <!-- <td>Col 1 Row 4</td> -->
+            <!-- <td>Col 2 Row 4</td> -->
+            <td>Col 3 Row 4</td>
+            <!-- <td>Col 4 Row 4</td> -->
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table class="table" cellspacing="0">
+        <tr>
+            <th>Col 1</th>
+            <th>Col 2</th>
+            <th>Col 3</th>
+            <th>Col 4</th>
+        </tr>
+        <tr>
+            <td>Col 1 Row 1</td>
+            <td>Col 2 Row 1</td>
+            <td>Col 3 Row 1</td>
+            <td>Col 4 Row 1</td>
+        </tr>
+        <tr>
+            <td>Col 1 Row 2</td>
+            <td>Col 2 Row 2</td>
+            <td>Col 3 Row 2</td>
+            <td>Col 4 Row 2</td>
+        </tr>
+        <tr>
+            <td>Col 1 Row 3</td>
+            <td>Col 2 Row 3</td>
+            <td>Col 3 Row 3</td>
+            <td>Col 4 Row 3</td>
+        </tr>
+        <tr>
+            <td>Col 1 Row 4</td>
+            <td>Col 2 Row 4</td>
+            <td>Col 3 Row 4</td>
+            <td>Col 4 Row 4</td>
+        </tr>
+    </table>
+
+    <style>
+        .table td,
+        .table th {
+            padding: 10px 25px;
+        }
+
+        .table th {
+            border-bottom: 1px solid black;
+        }
+
+        .table tr:nth-child(2n) td {
+            background: #f2f5f7;
+        }
+    </style>
+
+    <br>
+    <br>
+
+    <audio autoplay controls>
+        <source src="./assets/files/sound.mp3" type="audio/mp3">
+    </audio>
+
+    <br>
+    <br>
+
+    <video controls autoplay poster="./assets/images/slide_1.jpg">
+        <source src="./assets/files/video.mp4" type="video/mp4">
+    </video>
+
+    <br>
+    <br>
+
+    <pre>
+        AAAA    BBBB
+            123456
+                78910
+    </pre>
+
+    <br>
+    <br>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15675.482942143179!2d106.7116815!3d10.821203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528f1f95cf5cb%3A0xf9e7b4f2adbd6adb!2sEmart%20Go%20Vap!5e0!3m2!1sen!2s!4v1567084088332!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+    <iframe src="http://vnexpress.net" width="800" height="500"></iframe>
+</body>
+
+</html>

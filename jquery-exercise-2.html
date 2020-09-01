@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        .col {
+            margin-right: 10px;
+        }
+
+        .col p {
+            margin-bottom: 5px;
+        }
+
+        .controller {
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 15px;
+        }
+
+        .controller .buttons {
+            margin-top: 10px;
+        }
+
+        .controller .buttons button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="result">
+
+    </div>
+
+    <div class="controller">
+        Name:
+        <input type="text" id="name">
+        <br> Email:
+        <input type="email" id="email">
+        <input type="hidden" id="index">
+        <div class="buttons">
+            <button class="add">Add</button>
+            <button class="save">Save</button>
+        </div>
+    </div>
+
+    <script>
+        /* Biến toàn cục dùng để lưu dữ liệu và xử lý */
+        var contacts = [];
+
+        $(document).ready(function () {
+            $('.controller .add').on('click', addContact);
+            $('.controller .save').on('click', editContact);
+        });
+
+        /* Thêm 1 contact vào biến toàn cục contacts */
+        function addContact() {
+            var nameInput = $('#name').val();
+            var emailInput = $('#email').val();
+
+            if (nameInput != "" && emailInput != "") {
+                contacts.push({
+                    name: nameInput,
+                    email: emailInput
+                });
+
+                clearInput();
+                render();
+            }
+        }
+
+        /* Cập nhật lại giao diện, đọc biến toàn cục contact để hiển thị */
+        function render() {
+            var html = "";
+
+            for (var i = 0; i < contacts.length; i++) {
+                html += "<div class='col'>";
+                html += "<p>Name: " + contacts[i].name + "<br>";
+                html += "Email: " + contacts[i].email + "<br>";
+                html += "<button onclick='remove(" + i + ")'>x</button> <button onclick='get(" + i + ")'>e</button></p>";
+                html += "</div>";
+            }
+
+            $('.result').html(html);
+        }
+
+        /* Xoá 1 contact ra khỏi biến toàn cục contacts dựa vào id là thứ tự của phần tử đó trong contacts */
+        function remove(id) {
+            contacts.splice(id, 1);
+            render();
+        }
+
+        /* Lấy thông tin phần tử thứ id và hiển thị ra các thẻ input để thay đổi data */
+        function get(id) {
+            $('#name').val(contacts[id].name);
+            $('#email').val(contacts[id].email);
+            $('#index').val(id);
+        }
+
+        /* Thay đổi dữ liệu phần tử thứ id (đã lưu trong input type = hidden) */
+        function editContact() {
+            var nameInput = $('#name').val();
+            var emailInput = $('#email').val();
+            var idInput = $('#index').val();
+            if (nameInput != "" && emailInput != "" && idInput != "") {
+                contacts[parseInt(idInput)].name = nameInput;
+                contacts[parseInt(idInput)].email = emailInput;
+
+                render();
+                clearInput();
+            }
+        }
+
+        /* Xoá các giá trị trong thẻ input */
+        function clearInput() {
+            $('#name').val("");
+            $('#email').val("");
+            $('#index').val("");
+        }
+    </script>
+</body>
+
+</html>

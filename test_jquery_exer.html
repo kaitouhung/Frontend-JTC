@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .col {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .col p {
+            margin-bottom: 5px;
+        }
+
+        .controller {
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 15px;
+        }
+
+        .controller .buttons {
+            margin-top: 10px;
+        }
+
+        .controller .buttons button {
+            margin-right: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="result">
+
+    </div>
+    <div class="controller">
+        Number:
+        <input type="number" id="number">
+        <div class="buttons">
+            <button class="add">Add</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.buttons .add').on('click',addBCC);
+        });
+
+
+        function addBCC(){
+            var number=$('#number').val();
+            if(number !=''){
+                var number=parseInt(number);
+                var result=generateBCC(number);
+                $('.result').append(result);
+                $('#number').val('');
+
+            }
+        }
+
+
+        function generateBCC(number){
+            var now=new Date();
+            var html ='<div class="col" id="'+now.getTime()+'">';
+            for(var i=1;i<=9;i++){
+                html+='<p>'+number+'*'+i+'='+number*i+'</p>';
+            }
+            html+='<p style="text-align"><button onclick="remove('+now.getTime()+')">Remove</button></p></div>';
+            return html;
+        }
+
+        function remove(id){
+            $('#'+id).remove();
+        }
+    </script>
+    
+
+</body>
+
+</html>

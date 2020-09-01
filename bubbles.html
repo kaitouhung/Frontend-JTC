@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bubbles</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
+    <style>
+        .water {
+            height: 500px;
+            background: darkblue;
+            position: relative;
+        }
+
+        .bubble {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            border: 1px solid white;
+            bottom: 0;
+            border-radius: 50%;
+            left: 50%;
+            opacity: 0;
+            animation: float-up 3s linear infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                bottom: 0;
+                opacity: 1;
+            }
+
+            80% {
+                bottom: 80%;
+                opacity: 1;
+            }
+
+            100% {
+                bottom: 100%;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="water">
+        
+    </div>
+
+    <script>
+        function generateBubbles(number) {
+            var html = "";
+
+            for (var i = 0; i < number; i++) {
+                var width = Math.random() * 50 + 30;
+                var duration = Math.random() * 3 + 2; 
+                var delay = Math.random() * 3;
+                var left = Math.random() * 100;
+
+                html += "<span class='bubble' style='width:" + width + "px;height:" + width + "px;animation-duration:" + duration + "s;animation-delay:" + delay + "s;left:" + left + "%'></span>";
+            }
+
+            $('.water').html(html);
+        }
+
+        generateBubbles(25);
+    </script>
+</body>
+</html>

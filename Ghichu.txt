@@ -1,0 +1,104 @@
+-Khi làm javascript: ParseInt(),console.log(function),==,!= "" && !== undefined,return giá trị,
+
+
+-------------html-csss--------------
+-display:flex: chia cột tính theo %
+-flex-direction: xếp cột theo chiều dọc
+-float:left,right,center: đưa theo chiều được chọn
+-clear:both giữ nguyên chiều cao của cột cha
+-position:relative đặt làm cha
+-position: absolute đặt làm con, nhớ có left,top
+-position: fixed cố định, lấy thẻ html làm cha
+-display: none tắt thuộc tính
+-display:block mở thuộc tính-xếp phần tử thành khối
+-display:inline-block : giữ chiều nhưng vẫn dùng margin dc
+-visibility: hidden; ẩn phần tử
+-z-index: xếp phần tử nào hơn
+-!important: ưu tiên phần tử
+-.racing>div: thẻ div gần racing nhất
+-before,after
+-animation:rainbow linear infinia, @keyfram raibow{}
+-:last-child,nth-child(2n)
+-transition: all 1s linear;
+ 
+-------------bootstrap--------------
+-------------Webdemo----------------
+-------------js---------------------
+
+-Khi làm javascript: ParseInt(),console.log(function),==,
+-Sự kiện: onclick,sroll,ondblClick,onchange,onkeyup,
+-Đặt một giá trị là max, hoặc cắm cờ
+-làm ngày tháng thì chia lấy dư %7
+-Thực thi sự kiện ở đâu thì để chỗ đó
+-.value,trong js style trả về giá trị là chuỗi,muốn thay đổi thì+"chuoi", nếu tính toán thì + giá trị +""
+-.innerHTML
+-.style.display:"none"
+-document.getElementById;
+-document.getElementsByCLassName;
+-document.getElecmentsByTagName;
+-document.querySelector(.);
+-document.querySelectorAll(.):trả về chuỗi
+-parseInt(document.getElementById('dd').style.fontSize):lấy giá trị
+-document.getElementById('dd').style.fontSize=fontSize +"px";
+-nếu giá trị tính thì để không, không có thì để trong "": do.Id.style.display="block";
+-lấy object: contracts[i].name;
+-Các API thường dùng:GetALll, Great, Read, Update, Delete
+-window.addEventListener(scroll,function(){})
+-window.pageYOffset: xác định vị trí cuộn chuột
+-tendoituong.offsetTop: Vị trí của phần tử trong trang web
+-các hàm chuỗi
+
+-------------JQuery--------------------------
+-.append(___):thêm ở cuối
+-.prepend(....):thêm ở đầu
+-.html
+-.css('opacity'):lấy giá trị opacity,.css('opacity',opacity):thay bằng giá trị opacity
+-.val()
+-.addClass
+-.removeClass
+-.toggleClass
+-keyup
+-$('ste').remove():xoá hết
+-$('ste').empty(): xáo hết nhưng còn col
+-.empty: vẫn còn
+-.hasClass:kiểm tra nếu có trả về true,không có trả về false
+-.show/hide(500):500 milis:từ từ ẩn đi
+-$(document).ready(function(){$('back-to-top').on('click',backToTop);});
+-$(#back-to-top').on('click',function(){});
+-$('#opacity button:first(or last)-child').on()
+-dùng chuỗi trong chuỗi ' " /'+ss+/' " '
+-e.keycode === 13: phím enter;
+-.a
+-.attr('required'): lấy giá trị ví dụ như match="#password", nếu attr 2 cái thì gán. ví dụ .attr('required','required');  
+-$(this).parent().parent().find('.error .required'): lùi 2 div cha rồi tìm
+-setInterval(function(){},1000) 1000 tương ứng 1s;
+----------Ajax---------
+$.ajax({
+url:"",
+method:"POST"
+data:{},
+success:function(res){}
+error:function(err){}
+})
+--status code
+200-299
+300-399
+400-499
+500-599
+-section
+-localstorage:getItem,setItem,removeItem: phiên làm việc ko gửi tới server
+-Biến object thành chuỗi: JSON.stringify();
+-biến chuỗi thành object: 
+--Nhớ đặt cờ và return để hạn chế số lần chạy
+----------------Nodejs-------------------------------
+-npm init---cài các thư viện
+-npm install --save express,npm install
+--đọc file HTML bằng nodejs
+-var http=require('http');
+-var fs=require('fs');
+-http.createServer
+-res.writeHead
+-fs.ReadStream().pipe(res): pipe là ống dẫn file html
+-đọc file: dùng hàm readFile(): video 14
+--Router:req.url
+

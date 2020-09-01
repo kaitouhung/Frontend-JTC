@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Front End K10</title>
+
+    <link href="./libs/fontawesome/css/all.css" rel="stylesheet">
+    <link href="./libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/responsive.css" rel="stylesheet">
+</head>
+
+<body>
+    <script>
+        // console.log("11111111111");
+
+        // window.onload = function() {
+        //     console.log("load");
+        // }
+
+        // console.log("2222222222");
+
+        // var count = 0;
+        // var intervalValue = setInterval(function() {
+        //     count++;
+        //     console.log(count);
+
+        //     if (count > 3)
+        //         clearInterval(intervalValue);
+        // }, 2000);
+    </script>
+    <section class="menu">
+        <div class="my-container">
+            <div class="logo">
+                <img src="./assets/images/logo-white.png" alt="Lap trinh vien Janeto" />
+            </div>
+            <div class="list desktop">
+                <ul>
+                    <li>Home</li>
+                    <li>News</li>
+                    <li class="parent">
+                        More
+                        <ul class="child">
+                            <li>Blog</li>
+                            <li>Contact</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="search desktop">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="bars mobile" onclick="openMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="mobile mobile-menu">
+                <ul>
+                    <li>Home</li>
+                    <li>News</li>
+                    <li>Blog</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="slider">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image:url('./assets/images/slide_1.jpg');">
+                    <!-- <img src="./assets/images/slide_1.jpg" class="d-block w-100" alt="..."> -->
+                    <div class="text">
+                        <h3>This is the main slider message.</h3>
+                        <p>This is sub title</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image:url('./assets/images/slide_2.jpg');">
+                    <!-- <img src="./assets/images/slide_2.jpg" class="d-block w-100" alt="..."> -->
+                    <div class="text">
+                        <h3>This is the main slider message.</h3>
+                        <p>This is sub title</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image:url('./assets/images/slide_3.jpg');">
+                    <!-- <img src="./assets/images/slide_3.jpg" class="d-block w-100" alt="..."> -->
+                    <div class="text">
+                        <h3>This is the main slider message.</h3>
+                        <p>This is sub title</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="my-container">
+            <div class="top">
+                <div class="label">POPULAR</div>
+                <div class="control">
+                    <button>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="middle">
+                <!-- <div class="item effect effect-1">
+                    <div class="image" style="background-image: url('./assets/images/item_1.jpeg');">
+                        <div class="short-desc">
+                            Lorem ipslum
+                        </div>
+                    </div>
+                    <div class="text">
+                        <p class="title">This is blog title</p>
+                        <p>Author
+                            <span>17
+                                <sup>th</sup> Aug, 2019</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="item effect effect-2">
+                    <div class="image" style="background-image: url('./assets/images/item_2.jpg');">
+                        <div class="short-desc">
+                            Lorem ipslum
+                        </div>
+                    </div>
+                    <div class="text">
+                        <p class="title">This is blog title</p>
+                        <p>Author
+                            <span>17
+                                <sup>th</sup> Aug, 2019</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="item last effect effect-3">
+                    <div class="image" style="background-image: url('./assets/images/item_3.jpg');">
+                        <div class="short-desc">
+                            Lorem ipslum
+                        </div>
+                    </div>
+                    <div class="text">
+                        <p class="title">This is blog title</p>
+                        <p>Author
+                            <span>17
+                                <sup>th</sup> Aug, 2019</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="item effect effect-4">
+                    <div class="image" style="background-image: url('./assets/images/item_3.jpg');">
+                        <div class="short-desc">
+                            Lorem ipslum
+                        </div>
+                    </div>
+                    <div class="text">
+                        <p class="title">This is blog title</p>
+                        <p>Author
+                            <span>17
+                                <sup>th</sup> Aug, 2019</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="item effect effect-5">
+                    <div class="cover">
+                        <div class="image" style="background-image: url('./assets/images/item_1.jpeg');">
+
+                        </div>
+                    </div>
+                    <div class="text">
+                        <p class="title">This is blog title</p>
+                        <p>Author
+                            <span>17
+                                <sup>th</sup> Aug, 2019</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="item last effect effect-6">
+                    <div class="image" style="background-image: url('./assets/images/item_2.jpg');">
+
+                    </div>
+                    <div class="text">
+                        <p class="title">This is blog title</p>
+                        <p>Author
+                            <span>17
+                                <sup>th</sup> Aug, 2019</span>
+                        </p>
+                    </div>
+                </div> -->
+                <div class="clearfix"></div>
+            </div>
+            <div class="bottom">
+                <p>
+                    <button>1</button>
+                    <button>2</button>
+                    <span class="dots">...</span>
+                    <button>9</button>
+                    <button>10</button>
+                    <span>Page 1 of 10</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="my-container">
+            <div class="main">
+                <div class="item">
+                    <div class="logo">
+                        <img src="./assets/images/logo-white.png" />
+                    </div>
+                    <div class="text">
+                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                        The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
+                        to
+                    </div>
+                    <div class="social">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="label">
+                        NEW
+                    </div>
+                    <div class="my-row">
+                        <div class="image">
+                            <img src="./assets/images/item_1.jpeg" />
+                        </div>
+                        <div class="text">
+                            <p>New Title</p>
+                            <p>17th Aug, 2019</p>
+                        </div>
+                    </div>
+                    <div class="my-row">
+                        <div class="image">
+                            <img src="./assets/images/item_1.jpeg" />
+                        </div>
+                        <div class="text">
+                            <p>New Title</p>
+                            <p>17th Aug, 2019</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item last">
+                    <div class="label">
+                        category
+                    </div>
+                    <div class="categories">
+                        <p>Sports
+                            <span>10</span>
+                        </p>
+                        <p>Fashion
+                            <span>67</span>
+                        </p>
+                        <p>News
+                            <span>41</span>
+                        </p>
+                        <p>Living
+                            <span>32</span>
+                        </p>
+                        <p>Nature
+                            <span>12</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="sub">
+                &copy; Copyrights
+            </div>
+        </div>
+    </section>
+
+    <button id="myBtn" class="back-to-top" onclick="topFunction()">
+        <i class="fas fa-angle-double-up"></i>
+    </button>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="./libs/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/ajax.js"></script>    
+</body>
+
+</html>

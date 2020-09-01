@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        .col {
+            margin-right: 10px;
+        }
+
+        .col p {
+            margin-bottom: 5px;
+        }
+
+        .controller {
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 15px;
+        }
+
+        .controller .buttons {
+            margin-top: 10px;
+        }
+
+        .controller .buttons button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="result">
+
+    </div>
+
+    <div class="controller">
+        Name:
+        <input type="text" id="name">
+        <br> Email:
+        <input type="email" id="email">
+        <input type="hidden" id="index">
+        <br> Message:
+        <br>
+        <textarea id="message"></textarea>
+        <div class="buttons">
+            <button class="add">Add</button>
+            <button class="save">Save</button>
+        </div>
+    </div>
+
+    <script>
+        var urlApi = "http://hanhstorm.com/ajax/api/contact";
+
+        $(document).ready(function () {
+            getList();
+            $('.controller .add').on('click', addContact);
+            $('.controller .save').on('click', editContact);            
+        });
+
+        function getList() {
+            $.ajax({
+                url: urlApi,
+                method: "GET",
+                success: function (res) {
+                    render(res);
+                },
+                error: errorHandle
+            });
+        }
+
+        function errorHandle(err) {
+            alert("Calling API unsuccessfully !");
+            console.log(err);
+        }
+
+        function render(list) {
+            var html = "";
+
+            for (var i = 0; i < list.length; i++) {
+                html += "<div class='col'>";
+                html += "<p>" + list[i].id + ". Name: " + list[i].name + "<br>";
+                html += "Email: " + list[i].email + "<br>";
+                html += "Message: " + list[i].message + "<br>";
+                html += "<button onclick='remove(" + list[i].id + ")'>x</button> <button onclick='get(" + list[i].id + ")'>e</button></p>";
+                html += "</div>";
+            }
+
+            $('.result').html(html);
+        }
+
+        function addContact() {
+            var nameInput = $('#name').val();
+            var emailInput = $('#email').val();
+            var messageInput = $('#message').val();
+
+            if (nameInput != "" && emailInput != "") {
+                $.ajax({
+                    url: urlApi,
+                    method: "POST",
+                    data: {
+                        name: nameInput,
+                        email: emailInput,
+                        message: messageInput
+                    },
+                    success: function (res) {
+                        alert("Create successfully !");
+                        getList();
+                    },
+                    error: errorHandle
+                });
+            }
+        }
+
+        function clearInput() {
+            $('#name').val("");
+            $('#email').val("");
+            $('#index').val("");
+            $('#message').val("");
+        }
+
+        function remove(id) {
+            $.ajax({
+                url: urlApi + "/" + id,
+                method: "DELETE",
+                success: function (res) {
+                    alert("Delete successfully !");
+                    getList();
+                },
+                error: errorHandle
+            });
+        }
+
+        /* Lấy thông tin phần tử thứ id và hiển thị ra các thẻ input để thay đổi data */
+        function get(id) {
+            $.ajax({
+                url: urlApi + "/" + id,
+                method: "GET",
+                success: function (res) {
+                    $('#name').val(res.name);
+                    $('#email').val(res.email);
+                    $('#message').val(res.message);                    
+                    $('#index').val(res.id);
+                },
+                error: errorHandle
+            });
+        }
+
+        /* Thay đổi dữ liệu phần tử thứ id (đã lưu trong input type = hidden) */
+        function editContact() {
+            var nameInput = $('#name').val();
+            var emailInput = $('#email').val();
+            var idInput = $('#index').val();
+            var messInput = $('#message').val();
+
+            if (nameInput != "" && emailInput != "" && idInput != "") {
+                $.ajax({
+                    url: urlApi + "/" + idInput,
+                    method: "PUT",
+                    data: {
+                        name: nameInput,
+                        email: emailInput,
+                        message: messInput
+                    },
+                    success: function(res) {
+                        getList();
+                        clearInput();
+                    },
+                    error: errorHandle
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
